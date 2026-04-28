@@ -1,0 +1,62 @@
+[
+  {
+    "Ticker":"CHCI",
+    "Company":"Comstock Holding Co Inc",
+    "Sector":"Real Estate",
+    "Industry":"Real Estate Services",
+    "Country":"USA",
+    "Market Cap":171950000.0,
+    "P\/E":10.36,
+    "Price":16.84,
+    "Change":-0.0065,
+    "Volume":5451.0
+  },
+  {
+    "Ticker":"DLO",
+    "Company":"DLocal Limited",
+    "Sector":"Technology",
+    "Industry":"Software - Infrastructure",
+    "Country":"USA",
+    "Market Cap":4010000000.0,
+    "P\/E":20.25,
+    "Price":13.6,
+    "Change":-0.0138,
+    "Volume":481247.0
+  },
+  {
+    "Ticker":"KARO",
+    "Company":"Karooooo Ltd",
+    "Sector":"Technology",
+    "Industry":"Software - Application",
+    "Country":"Singapore",
+    "Market Cap":1550000000.0,
+    "P\/E":27.21,
+    "Price":50.08,
+    "Change":0.0047,
+    "Volume":17102.0
+  },
+  {
+    "Ticker":"MSGM",
+    "Company":"Motorsport Games Inc",
+    "Sector":"Communication Services",
+    "Industry":"Electronic Gaming & Multimedia",
+    "Country":"USA",
+    "Market Cap":25860000.0,
+    "P\/E":3.1,
+    "Price":4.47,
+    "Change":0.1132,
+    "Volume":92508.0
+  },
+  {
+    "Ticker":"SGHC",
+    "Company":"Super Group (SGHC) Limited",
+    "Sector":"Consumer Cyclical",
+    "Industry":"Gambling",
+    "Country":"United Kingdom",
+    "Market Cap":6300000000.0,
+    "P\/E":28.83,
+    "Price":12.4,
+    "Change":-0.0064,
+    "Volume":925014.0
+  }
+]
