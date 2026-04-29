@@ -2,6 +2,7 @@ name: Finviz Daily Report
 
 on:
   schedule:
+    # Run both possible UTC times for 9:30 AM New York (DST-safe).
     - cron: "30 13 * * 1-5"
     - cron: "30 14 * * 1-5"
   workflow_dispatch:
@@ -16,11 +17,18 @@ jobs:
       - name: Check New York market time gate
         id: market_time
         run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run_report=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           ny_time=$(TZ=America/New_York date +'%u %H:%M')
           ny_day=$(echo "$ny_time" | awk '{print $1}')
           ny_clock=$(echo "$ny_time" | awk '{print $2}')
+          ny_hour=$(echo "$ny_clock" | cut -d: -f1)
+          ny_min=$(echo "$ny_clock" | cut -d: -f2)
           echo "NY time now: $ny_time"
-          if [ "$ny_day" -ge 1 ] && [ "$ny_day" -le 5 ] && [ "$ny_clock" = "09:30" ]; then
+          # Allow a practical run window around market-open timing.
+          if [ "$ny_day" -ge 1 ] && [ "$ny_day" -le 5 ] && [ "$ny_hour" = "09" ] && [ "$ny_min" -ge 20 ] && [ "$ny_min" -le 35 ]; then
             echo "run_report=true" >> "$GITHUB_OUTPUT"
           else
             echo "run_report=false" >> "$GITHUB_OUTPUT"
