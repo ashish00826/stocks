@@ -28,7 +28,7 @@ jobs:
           ny_min=$(echo "$ny_clock" | cut -d: -f2)
           echo "NY time now: $ny_time"
           # Allow a practical run window around 10:00 AM New York time.
-          if [ "$ny_day" -ge 1 ] && [ "$ny_day" -le 5 ] && [ "$ny_hour" = "10" ] && [ "$ny_min" -ge 0 ] && [ "$ny_min" -le 15 ]; then
+          if [ "$ny_day" -ge 1 ] && [ "$ny_day" -le 5 ] && [ "$ny_hour" = "10" ] && [ "$ny_min" -ge 0 ] && [ "$ny_min" -le 30 ]; then
             echo "run_report=true" >> "$GITHUB_OUTPUT"
           else
             echo "run_report=false" >> "$GITHUB_OUTPUT"
