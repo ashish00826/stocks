@@ -2,9 +2,9 @@ name: Finviz Daily Report
 
 on:
   schedule:
-    # Run both possible UTC times for 11:00 AM New York (DST-safe).
-    - cron: "0 15 * * 1-5"
+    # Run both possible UTC times for 12:00 PM New York (DST-safe).
     - cron: "0 16 * * 1-5"
+    - cron: "0 17 * * 1-5"
   workflow_dispatch:
 
 jobs:
@@ -27,8 +27,8 @@ jobs:
           ny_hour=$(echo "$ny_clock" | cut -d: -f1)
           ny_min=$(echo "$ny_clock" | cut -d: -f2)
           echo "NY time now: $ny_time"
-          # Allow a practical run window around 11:00 AM New York time.
-          if [ "$ny_day" -ge 1 ] && [ "$ny_day" -le 5 ] && [ "$ny_hour" = "11" ] && [ "$ny_min" -ge 0 ] && [ "$ny_min" -le 30 ]; then
+          # Allow run window from 12:00 PM to 1:00 PM New York time.
+          if [ "$ny_day" -ge 1 ] && [ "$ny_day" -le 5 ] && { [ "$ny_hour" = "12" ] || { [ "$ny_hour" = "13" ] && [ "$ny_min" = "00" ]; }; }; then
             echo "run_report=true" >> "$GITHUB_OUTPUT"
           else
             echo "run_report=false" >> "$GITHUB_OUTPUT"
