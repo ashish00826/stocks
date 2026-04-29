@@ -30,7 +30,7 @@ jobs:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASS: ${{ secrets.SMTP_PASS }}
           SMTP_FROM: ${{ secrets.SMTP_FROM }}
-          REPORT_RECIPIENTS: aaggarwal0826@gmail.com
+          REPORT_RECIPIENTS: aaggarwal0826@gmail.com,newbiztarseena@gmail.com
         run: |
           python scripts/finviz_report.py
 
