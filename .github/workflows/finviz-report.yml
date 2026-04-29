@@ -2,8 +2,8 @@ name: Finviz Daily Report
 
 on:
   schedule:
-    # 1:10 PM New York time (EDT = UTC-4 → 17:10 UTC)
-    - cron: "10 17 * * 1-5"
+    # 1:30 PM New York time (EDT = UTC-4 → 17:30 UTC)
+    - cron: "30 17 * * 1-5"
   workflow_dispatch:
 
 jobs:
